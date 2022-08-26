@@ -6,30 +6,34 @@ const inputTarefa = document.getElementById("tarefa-nova");
 
 // Criar função para adicionar tarefa
 const adicionarTarefa = () => {
-  // Criar elemento li
-  const item = document.createElement("li"); // <li> </li>
-  idTarefa++;
-  item.id = idTarefa;
+  if (inputTarefa.value != "") {
+    // Criar elemento li
+    const item = document.createElement("li"); // <li> </li>
+    idTarefa++;
+    item.id = idTarefa;
 
-  // Adicionar texto digitado no elemento
-  // item.innerHTML = `
-  //   <span>${inputTarefa.value}</span>
-  //   <button class="excluir">x</button>
-  // `;
+    // Adicionar texto digitado no elemento
+    // item.innerHTML = `
+    //   <span>${inputTarefa.value}</span>
+    //   <button class="excluir">x</button>
+    // `;
 
-  item.innerHTML = `
-  <span onclick="concluir(${idTarefa})">${inputTarefa.value}</span>
-  <button class="excluir" onclick="excluir(event)">x</button>
-  `;
+    item.innerHTML = `
+    <span onclick="concluir(${idTarefa})">${inputTarefa.value}</span>
+    <button class="excluir" onclick="excluir(event)">x</button>
+    `;
 
-  //Pega a lista de tarefas
-  const lista = document.querySelector("#lista");
+    //Pega a lista de tarefas
+    const lista = document.querySelector("#lista");
 
-  // Adicionar elemento na lista de tarefas
-  lista.appendChild(item);
+    // Adicionar elemento na lista de tarefas
+    lista.appendChild(item);
 
-  // Limpa o valor digitado pelo usuário
-  inputTarefa.value = "";
+    // Limpa o valor digitado pelo usuário
+    inputTarefa.value = "";
+  } else {
+    alert("Por favor insira uma tarefa");
+  }
 };
 
 // Adiciona o envento de click no botão adicionar
