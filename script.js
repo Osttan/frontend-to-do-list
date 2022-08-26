@@ -32,13 +32,6 @@ const adicionarTarefa = () => {
   inputTarefa.value = "";
 };
 
-// Criar a função de marcar item como concluído
-function concluir(itemId) {
-  console.log(itemId);
-  const tarefaSelecionada = document.getElementById(itemId);
-  tarefaSelecionada.className = "concluida";
-}
-
 // Adiciona o envento de click no botão adicionar
 // Quando clica você executa a funçao adicionarTarefa
 document
@@ -58,4 +51,14 @@ botaoLimpar.addEventListener("click", function (event) {
 
 //Para casa:
 // 3. Marcar tarefa como concluída
+function concluir(itemId) {
+  console.log(itemId);
+  const tarefaSelecionada = document.getElementById(itemId);
+  tarefaSelecionada.className = "concluida";
+}
+
 // 4. Excluir tarefa ao clicar no botão
+function excluir(e) {
+  document.querySelector(".excluir").parentElement.remove();
+  e.preventDefault();
+}
